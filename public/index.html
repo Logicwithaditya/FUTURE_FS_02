@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LeadFlow CRM</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer type="module"></script>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>LeadFlow CRM</h2>
+      <ul>
+        <li class="active" data-section="dashboard"><a href="">Dashboard</a></li>
+        <li data-section="leads"><a href="#leads">Leads</a></li>
+        <li data-section="addLead"><a href="#addLead">Add Lead</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+      <!-- Dashboard -->
+      <section id="dashboard" class="panel active">
+        <header>
+          <h1>Dashboard</h1>
+        </header>
+        <section class="cards">
+          <div class="card"><h3>Total</h3><p>56</p></div>
+          <div class="card"><h3>New</h3><p>18</p></div>
+          <div class="card"><h3>Progress</h3><p>21</p></div>
+          <div class="card"><h3>Closed</h3><p>17</p></div>
+        </section>
+        <section class="charts">
+          <div class="chart-box">
+            <h3>Leads Overview</h3>
+            <canvas id="lineChart"></canvas>
+          </div>
+          <div class="chart-box">
+            <h3>Leads Source</h3>
+            <canvas id="pieChart"></canvas>
+          </div>
+        </section>
+      </section>
+
+      <!-- Leads Table -->
+      <section id="leads" class="panel">
+        <h2>Leads</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Company</th>
+              <th>Status</th>
+              <th>Notes</th>
+              <th>Follow-up Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="leadTable">
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Add Lead Form -->
+      <section id="addLead" class="panel">
+        <h2>Add Lead</h2>
+        <form id="leadForm">
+          <label for="name">Full Name</label>
+          <input id="name" type="text" placeholder="Enter full name" required>
+          
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="Enter email address" required>
+          
+          <label for="phone">Phone Number</label>
+          <input id="phone" type="tel" placeholder="Enter phone number" required>
+
+          <label for="company">Company</label>
+          <input id="company" type="text" placeholder="Enter company name" required>
+          
+          <label for="status">Status</label>
+          <select id="status" required>
+            <option value="New">New</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Closed">Closed</option>
+          </select>
+          
+          <label for="notes">Notes</label>
+          <textarea id="notes" placeholder="Additional notes"></textarea>
+          
+          <label for="followUp">Follow-up Date</label>
+          <input id="followUp" type="date">
+          
+          <button type="submit" onclick="addLead()">Save Lead</button>
+        </form>
+      </section>
+
+
+
+
+
+    </main>
+  </div>
+</body>
+</html>
